@@ -1,0 +1,48 @@
+import statistics
+print("Welcome to the calculator, this will calculate mean median and mode all at once.")
+print("NOTE: If the Mode is unknown it'll give you the first number you imputted)")
+
+print("")
+input("Press Enter to continue: ")
+print("")
+
+restart = True
+while restart == True:
+  
+  num_divide = 0
+  total = 0
+  num_list = []
+  num_section = 1
+  num_loop = True
+
+  print("Enter the numbers in your list, type 000 to stop")
+  
+  while num_loop == True:
+    num = int(input(str(num_section) + ": "))
+    num_divide += 1
+    total += num
+    num_list.append(num)
+    num_section += 1
+
+    if num == 000:
+      num_loop = False
+
+  num_list.remove(000)
+  num_divide -= 1
+  avg = total/num_divide
+  range = max(num_list) - min(num_list)
+  least_to_great = sorted(num_list)
+  median = statistics.median(num_list)
+  mode = statistics.mode(num_list)
+  
+  print("")
+  print("Your numbers least to greatest is: " + str(least_to_great))
+  print("The sum is: " + str(total))
+  print("Your mean is: " + str(avg))
+  print("The median is: " + str(median))
+  print("Your mode is: " + str(mode))
+  print("Your maximum is: " + str(max(num_list)) + ", Your minimum is: " + str(min(num_list)))
+  print("Your range is: " + str(range))
+  print("")
+  input("Press Enter to continue: ")
+  print("")
